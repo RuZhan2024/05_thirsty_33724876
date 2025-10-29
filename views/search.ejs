@@ -1,24 +1,25 @@
-<!doctype html>
-<html>
+<%- include('partials/header') %>
 
-<head>
-  <title><%=shopName%></title>
-  <link rel="stylesheet" type="text/css" href="index.css" />
-</head>
+<h2>Search</h2>
+<form action="/search_result" method="GET" class="card form">
+  <label for="search_box">Keyword</label>
+  <input
+    id="search_box"
+    type="text"
+    name="search_text"
+    placeholder="e.g. Lemonade"
+    required
+  />
 
-<body>
-  <h1>Welcome to The Thirsty Student Shop (Search Page)</h1>
-  <form action="/search_result" method="GET">
-    <label for="name">
-      Name:
-    </label>
-    <input id="name" type="text" name="search_name">
-    <label for="category">
-      Category:
-    </label>
-    <input id="category" type="text" name="search_category">
-    <input type="submit" value="OK">
-  </form>
-</body>
+  <label for="category">Category</label>
+  <select id="category" name="category" required>
+    <option value="">Select a category</option>
+    <% for (const c of productCategories) { %>
+    <option value="<%= c %>"><%= c %></option>
+    <% } %>
+  </select>
 
-</html>
+  <button type="submit">Search</button>
+</form>
+
+<%- include('partials/footer') %>

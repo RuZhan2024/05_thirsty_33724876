@@ -1,29 +1,55 @@
-<!doctype html>
-<html>
-  <head>
-    <title><%=shopName%></title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
-  </head>
-  <body>
-    <h1>Welcome to <%=shopName%> Shop</h1>
-    <h2>Here is the Survey Page:</h2>
-    <form action="survey">
-        <label for="first">First Name:</label>
-        <input id="first" type="text" name="first"/>
-        <label for="last">SurName:</label>
-        <input id="last" type="text" name="last"/>
-        <label for="email">Email Address:</label>
-        <input id="email" type="email" name="email"/>
-        <label for="age">How old are you?</label>
-        <input id="age" type="number" name="age">
-        <label for="favourite">•	Which of the following drinks categories do you consume?</label>
-        <input id="beer" type="radio" name="favourite" value="Beer">Beer
-        <input id="wine" type="radio" name="favourite" value="Wine">Wine
-        <input id="softdrinks" type="radio" name="favourite" value="Soft Drinks">Soft Drinks
-        <input id="hotdrinks" type="radio" name="favourite" value="Hot Drinks">Hot Drinks
-        <label for="student">Are you a student?</label>
-        <input id="student" type="checkbox" name="student">
-    </form>
-    </body>
-</html>
+<%- include('partials/header') %>
 
+<h2>Customer Survey</h2>
+
+<form id="surveyForm" method="POST" action="/survey_submitted" class="card form">
+  <div class="grid-2">
+    <div>
+      <label for="first">First name</label>
+      <input id="first" type="text" name="first" required />
+    </div>
+    <div>
+      <label for="last">Surname</label>
+      <input id="last" type="text" name="last" required />
+    </div>
+  </div>
+
+  <label for="email">Email address</label>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    required
+    autocomplete="email"
+    inputmode="email"
+    minlength="6"
+    maxlength="254"
+    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+    title="Enter a valid email like name@example.com"
+    data-required-msg="Email is required."
+    data-type-msg="Please enter a valid email address (e.g., name@example.com)."
+    data-pattern-msg="Please use a valid email format (e.g., name@example.com)."
+  />
+
+  <label for="age">How old are you?</label>
+  <input id="age" type="text" name="age" inputmode="numeric" required />
+
+  <fieldset>
+    <legend>Which of the following drinks categories do you consume?</legend>
+    <% for (const c of productCategories) { %>
+      <label class="inline">
+        <input type="radio" name="category" value="<%= c %>" required />
+        <span><%= c %></span>
+      </label>
+    <% } %>
+  </fieldset>
+
+  <label class="inline">
+    <input type="checkbox" name="is_student" />
+    <span>Are you a student?</span>
+  </label>
+
+  <button type="submit" form="surveyForm">Submit Survey</button>
+</form>
+
+<%- include('partials/footer') %>

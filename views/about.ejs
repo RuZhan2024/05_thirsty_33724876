@@ -1,26 +1,25 @@
-<!doctype html>
-<html>
+<%- include('partials/header') %>
 
-<head>
-  <title>
-    <%=shopName%>
-  </title>
-  <link rel="stylesheet" type="text/css" href="index.css" />
-</head>
+<h2>About <%= shopName %></h2>
+<p>We sell all sorts of drinks. Here are our shop locations and managers:</p>
 
-<body>
-  <h1>About <%=shopName%>
-  </h1>
-  <p>We sell all sorts of drinks</p>
-  <ul>
-    <% for(let i=0; i < shops.length; i++) { %>
-      <li>
-        <p>Shop Name: <%= shops[i].name %></p>
-        <p>Shop Manager: <%= shops[i].manager %></p>
-        <p>Shop Address: <%= shops[i].address %></p>
-      </li>
-      <%}%>
-  </ul>
-</body>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Shop</th>
+      <th>Manager</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const s of shops) { %>
+    <tr>
+      <td><%= s.name %></td>
+      <td><%= s.manager %></td>
+      <td><%= s.address %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
 
-</html>
+<%- include('partials/footer') %>

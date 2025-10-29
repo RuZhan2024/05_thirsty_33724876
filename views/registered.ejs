@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<h2>Registration</h2>
+
+<% if (typeof error !== 'undefined') { %>
+<div class="alert"><%= error %></div>
+<p>Please go back and correct the form.</p>
+<% } else { %>
+<p>
+  Hello <strong><%= first %> <%= last %></strong> (<%= email %>), you are now
+  registered!
+</p>
+<% } %> <%- include('partials/footer') %>

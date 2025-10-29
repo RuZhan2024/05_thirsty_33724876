@@ -1,19 +1,36 @@
-<!doctype html> 
-<html>  
-  <head>  
-    <title><%=shopName%></title> 
-    <link rel="stylesheet" type="text/css" href="index.css" />
-  </head>  
-  <body>  
-    <h1> This is the register page </h1> 
-    <form method="POST" action="/registered"> 
-        <label for="first"> First Name:</label>
-       <input id="first" type="text" name="first"/> 
-       <label for="last">Last Name:</label>
-        <input id="last" type="text" name="last" /> 
-        <label for="email">Email:</label>
-        <input id="email" type="email" name="email">
-        <input type="submit" value="OK" /> 
-    </form> 
-</body>  
-</html> 
+<%- include('partials/header') %>
+
+<h2>Register</h2>
+
+<form method="POST" action="/registered" class="card form">
+  <div class="grid-2">
+    <div>
+      <label for="first">First Name</label>
+      <input id="first" type="text" name="first" required />
+    </div>
+    <div>
+      <label for="last">Last Name</label>
+      <input id="last" type="text" name="last" required />
+    </div>
+  </div>
+
+  <label for="email">Email</label>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    required
+    autocomplete="email"
+    inputmode="email"
+    minlength="6"
+    maxlength="254"
+    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+    title="Enter a valid email like name@example.com"
+    data-required-msg="Email is required."
+    data-type-msg="Please enter a valid email address (e.g., name@example.com)."
+    data-pattern-msg="Please use a valid email format (e.g., name@example.com)."
+  />
+  <button type="submit">OK</button>
+</form>
+
+<%- include('partials/footer') %>
