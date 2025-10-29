@@ -7,9 +7,10 @@
     <h1>Welcome to <%=shopName%> Shop</h1>
     <h2>Here are some things that we sell:</h2>
     <ul>
-      <li>Beer</li>
-      <li>Wine</li>
-      <li>Soft Drinks</li>
+        <% for(let i = 0; i < productCategories.length; i++) { %>
+            <li><%= productCategories[i] %></li>
+          <% } %>
+    
     </ul>
     </body>
 </html>

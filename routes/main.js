@@ -3,13 +3,15 @@ const express = require("express");
 const router = express.Router();
 
  // Define our data
- const shopData = {shopName: "Drinks R Us"};
-
+const shopData = {
+    shopName: "Drinks R Us",
+    productCategories:["Beer", "Wine", "Soft Drinks", "Hot Drinks"]
+};
 
 // Handle the main routes
 // TODO
 router.get("/", (req, res) => {
-    res.render("index.ejs", {...shopData})
+    res.render("index.ejs", shopData)
 }); 
 
 router.get("/about", (req, res) => {
