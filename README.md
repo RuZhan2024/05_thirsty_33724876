@@ -69,9 +69,9 @@ npm start
 
 ```bash
 # if forever is available on your VM image
-npx forever start -a -l forever.log -o out.log -e err.log index.js
+forever start -a -l forever.log -o out.log -e err.log index.js
 # manage later
-npx forever list
-npx forever stop index.js
+forever list
+forever stop index.js
 ```
 
