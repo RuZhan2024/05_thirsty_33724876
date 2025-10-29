@@ -25,7 +25,7 @@ router.get("/search", (req, res) => {
 });
 
 router.get("/search_result", (req, res) => {
-    res.send(req.query);
+    res.send("You searched for " + req.query.search_name + " in " + req.query.search_category);
 
 });
 // Export the router object so index.js can access it
