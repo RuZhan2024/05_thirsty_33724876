@@ -1,66 +1,73 @@
 :root {
-  --bg: #0f172a;
-  --panel: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --brand: #22d3ee;
+  --bg: #f8fafc;        /* page background */
+  --panel: #ffffff;     /* cards/panels */
+  --text: #0f172a;      /* primary text */
+  --muted: #64748b;     /* secondary text */
+  --brand: #0ea5e9;     /* accent / brand */
+  --border: #e5e7eb;    /* soft borders */
+  --panel-2: #f1f5f9;   /* subtle fills (pills, rows) */
 }
-* {
-  box-sizing: border-box;
-}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
-    "Apple Color Emoji";
-  background: #0b1020;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji";
+  background: var(--bg);
   color: var(--text);
 }
+
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 1.25rem;
 }
+
+/* Header / Nav */
 .site-header {
-  background: linear-gradient(90deg, #0ea5e9, #22d3ee);
-  color: #00131a;
+  background: linear-gradient(90deg, #e0f2fe, #a5f3fc);
+  color: #0c4a6e;
+  border-bottom: 1px solid var(--border);
 }
-.site-header .brand {
-  margin: 0;
-  font-size: 1.5rem;
-}
+.site-header .brand { margin: 0; font-size: 1.5rem; }
 .site-header a {
-  color: #00131a;
+  color: #0c4a6e;
   text-decoration: none;
   font-weight: 600;
 }
-nav a {
-  margin-right: 1rem;
-  opacity: 0.9;
-}
-nav a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
+nav a { margin-right: 1rem; opacity: 0.9; }
+nav a:hover { opacity: 1; text-decoration: underline; }
+
+/* Footer */
 .site-footer {
-  border-top: 1px dashed #334155;
-  background: #0a0f1f;
+  border-top: 1px dashed var(--border);
+  background: #f8fafc;
   color: var(--muted);
 }
-h1,
-h2 {
-  margin-top: 1rem;
-}
+
+h1, h2 { margin-top: 1rem; }
+
+/* Tables */
 .table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
 }
-.table th,
-.table td {
+.table th, .table td {
   padding: 0.65rem 0.75rem;
-  border-bottom: 1px solid #1f2937;
+  border-bottom: 1px solid var(--border);
   text-align: left;
 }
+.table thead th {
+  background: var(--panel-2);
+  font-weight: 700;
+}
+
+/* Pills */
 .pill-list {
   list-style: none;
   padding: 0;
@@ -69,75 +76,81 @@ h2 {
   flex-wrap: wrap;
 }
 .pill {
-  background: #0b132e;
-  border: 1px solid #1f2937;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
 }
+
+/* Cards / Forms */
 .card {
-  background: #0b132e;
-  border: 1px solid #1f2937;
+  background: var(--panel);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1rem;
   margin-top: 1rem;
 }
+
 .form label {
   display: block;
   margin-top: 0.75rem;
   margin-bottom: 0.25rem;
-  color: #cbd5e1;
+  color: #334155;
 }
+
 .form input[type="text"],
 .form input[type="email"],
 .form select {
   width: 100%;
   padding: 0.6rem 0.7rem;
   border-radius: 8px;
-  border: 1px solid #334155;
-  background: #0f172a;
-  color: #e5e7eb;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: var(--text);
 }
-/* Visual hint for validity (keeps your current palette) */
-.form input:required:invalid {
-  border-color: #7f1d1d;
+
+.form fieldset {
+    margin-top: 10px;
 }
-.form input:required:valid {
-  border-color: #14532d;
-}
+
+.form input:required:invalid { border-color: #ef4444; }
+.form input:required:valid   { border-color: #10b981; }
+
 .form button {
   margin-top: 1rem;
   padding: 0.6rem 1rem;
   border-radius: 8px;
-  border: 1px solid #164e63;
-  background: #0ea5e9;
-  color: #00131a;
+  border: 1px solid #0891b2;
+  background: var(--brand);
+  color: #ffffff;
   font-weight: 700;
   cursor: pointer;
 }
-.form button:hover {
-  background: #22d3ee;
-}
+.form button:hover { filter: brightness(1.05); }
+
 .inline {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin: 0.25rem 0;
 }
+
 .grid-2 {
   display: grid;
   gap: 0.75rem;
   grid-template-columns: 1fr 1fr;
 }
+
+/* Alerts (lighter tones) */
 .alert {
-  background: #3f1d1d;
-  border: 1px solid #7f1d1d;
-  color: #fecaca;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #7f1d1d;
   padding: 0.75rem;
   border-radius: 8px;
   margin: 0.75rem 0;
 }
+
 @media (max-width: 640px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
+  .grid-2 { grid-template-columns: 1fr; }
 }
