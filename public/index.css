@@ -1,3 +1,5 @@
+/* styles.css — light (shallow) theme with brand + nav on one row */
+
 :root {
   --bg: #f8fafc;        /* page background */
   --panel: #ffffff;     /* cards/panels */
@@ -23,20 +25,51 @@ body {
   padding: 1.25rem;
 }
 
-/* Header / Nav */
+/* Header / Nav — brand + nav on one row */
 .site-header {
   background: linear-gradient(90deg, #e0f2fe, #a5f3fc);
   color: #0c4a6e;
   border-bottom: 1px solid var(--border);
 }
-.site-header .brand { margin: 0; font-size: 1.5rem; }
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: nowrap;           
+}
+
+.site-header .brand {
+  margin: 0;
+  font-size: 1.5rem;
+  flex: 0 0 auto;              
+}
+
 .site-header a {
   color: #0c4a6e;
   text-decoration: none;
   font-weight: 600;
 }
-nav a { margin-right: 1rem; opacity: 0.9; }
-nav a:hover { opacity: 1; text-decoration: underline; }
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;                    
+  white-space: nowrap;         
+  overflow-x: auto;             
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;               
+}
+
+.site-header nav a {
+  opacity: 0.9;
+}
+.site-header nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
 
 /* Footer */
 .site-footer {
@@ -109,9 +142,7 @@ h1, h2 { margin-top: 1rem; }
   color: var(--text);
 }
 
-.form fieldset {
-    margin-top: 10px;
-}
+.form fieldset { margin-top: 10px; }
 
 .form input:required:invalid { border-color: #ef4444; }
 .form input:required:valid   { border-color: #10b981; }
