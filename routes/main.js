@@ -91,6 +91,11 @@ router.post("/registered", (req, res) => {
 
     res.send(' Hello ' + req.body.first + ' ' + req.body.last + ' you are now registered! We will send an email to you at ' + req.body.email);
 });
+
+router.get("/survey", (req, res) => {
+    res.render("survey.ejs", shopData);
+});
+
 // Export the router object so index.js can access it
 module.exports = router;
 
