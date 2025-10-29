@@ -1,9 +1,23 @@
 <!doctype html>
 <html>
-  <head>
-    <title> The Thirsty Student</title>
-  </head>
-  <body>
-    <h1>Welcome to The Thirsty Student Shop (Search Page)</h1>
-    </body>
+
+<head>
+  <title> The Thirsty Student</title>
+</head>
+
+<body>
+  <h1>Welcome to The Thirsty Student Shop (Search Page)</h1>
+  <form action="/search_result" method="GET">
+    <label for="name">
+      Name:
+    </label>
+    <input id="name" type="text" name="search_text">
+    <label for="category">
+      Category:
+    </label>
+    <input id="category" type="text" name="search_text">
+    <input type="submit" value="OK">
+  </form>
+</body>
+
 </html>

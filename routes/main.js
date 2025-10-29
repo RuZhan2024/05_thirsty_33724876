@@ -23,6 +23,11 @@ router.get("/search", (req, res) => {
     res.render("search.ejs")
 
 });
+
+router.get("/search_result", (req, res) => {
+    res.send(req.query);
+
+});
 // Export the router object so index.js can access it
 module.exports = router;
 
