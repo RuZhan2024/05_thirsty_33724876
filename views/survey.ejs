@@ -32,13 +32,13 @@
   />
 
   <label for="age">How old are you?</label>
-  <input id="age" type="text" name="age" inputmode="numeric" required />
+  <input id="age" type="number" name="age" inputmode="numeric" required />
 
   <fieldset>
     <legend>Which of the following drinks categories do you consume?</legend>
     <% for (const c of productCategories) { %>
       <label class="inline">
-        <input type="radio" name="category" value="<%= c %>" required />
+        <input type="radio" name="category" value="<%= c %>" min="1" max="200" required />
         <span><%= c %></span>
       </label>
     <% } %>
