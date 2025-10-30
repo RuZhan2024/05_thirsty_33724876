@@ -55,7 +55,7 @@ npm start
 │     └─ footer.ejs            — Shared footer + closing layout tags
 ├─ public/
 │  └─ styles.css               — External stylesheet (light “shallow” theme)
-└─ links.txt                   — REQUIRED: one line with home=YOUR_PUBLIC_URL for submission
+└─ links.txt                   — REQUIRED: one line with home=http://www.doc.gold.ac.uk/usr/122/ for submission
 ```
 
 
@@ -83,3 +83,15 @@ forever list
 forever stop index.js
 ```
 
+```markdown
+| Route                 | Description                                                        | URL                                                                                                                      |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `/`                   | Home page. Shows the shop name and product categories.            | http://www.doc.gold.ac.uk/usr/122/                                                                                       |
+| `/about`              | About page. Lists shop locations, managers, and addresses.        | http://www.doc.gold.ac.uk/usr/122/about                                                                                  |
+| `/search`             | Search form (GET). Enter a keyword and choose a category.         | http://www.doc.gold.ac.uk/usr/122/search                                                                                 |
+| `/search_result`      | Search results. Displays what was submitted from `/search`.       | http://www.doc.gold.ac.uk/usr/122/search_result                                                                          |
+| `/register`           | Registration form (POST). First name, last name, email.           | http://www.doc.gold.ac.uk/usr/122/register                                                                               |
+| `/registered`         | Registration summary. Shows submitted data from `/register`.      | http://www.doc.gold.ac.uk/usr/122/registered                                                                             |
+| `/survey`             | Customer survey (POST). Basic info + favourite category + student | http://www.doc.gold.ac.uk/usr/122/survey                                                                                 |
+| `/survey_submitted`   | Survey summary. Displays submitted answers from `/survey`.        | http://www.doc.gold.ac.uk/usr/122/survey_submitted                                                                       |
+```
